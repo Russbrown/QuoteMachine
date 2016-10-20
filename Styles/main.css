@@ -137,6 +137,10 @@ select {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
 
+.light-text {
+    margin-top: 5px;
+}
+
 .controls {
     float: left;
     width: 300px;

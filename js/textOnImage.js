@@ -1,5 +1,6 @@
 var backgroundColor = "";
 var gradientActive = false;
+var textColor = "#333";
 
 var titleX = 80;
 var titleY = 110;
@@ -103,27 +104,25 @@ $(document).ready(function () {
             context.fillStyle = "#" + backgroundColor;
             context.fillRect(0,0, canvas.width, canvas.height);
         }
-
-        console.log(picture.src);
         
         context.drawImage(logo, 0, 0);
 
         context.drawImage(picture, 0, 0);
 
         context.font = "48px albert-bold";
-        context.fillStyle = "#333";
+        context.fillStyle = textColor;
         wrapText(context, title, titleX, titleY, titleWidth, 52);
         
         context.font = "28px albert-reg";
-        context.fillStyle = "#333";
+        context.fillStyle = textColor;
         wrapText(context, quote, quoteX, quoteY, quoteWidth, 34);
 
         context.font = "28px albert-reg";
-        context.fillStyle = "#333";
+        context.fillStyle = textColor;
         context.fillText('"', (quoteX - 10), (quoteY) );
 
         context.font = "18px albert-reg";
-        context.fillStyle = "#333";
+        context.fillStyle = textColor;
         context.fillText(author, authorX, authorY);       
     }
 
@@ -142,6 +141,16 @@ $(document).ready(function () {
         colorStop1 = "#6a3178";
         colorStop2 = "#217cbc";  
         drawCanvas();      
+    });
+
+    $(".dark-text").on("click", function(){
+        textColor = "#333";
+        drawCanvas();
+    });
+
+    $(".light-text").on("click", function(){
+        textColor = "#eee";
+        drawCanvas();
     });
 
     $(".title-input").on("input", function(){
