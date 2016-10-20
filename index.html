@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title></title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/textOnImage.js"></script>
+    <script src="js/jscolor.min.js"></script>
+    <!--<script src="js/draggable.js"></script>-->
+    <script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.min.js"></script>
+    <link rel=StyleSheet href="Styles/main.css" type="text/css">
+    <script src="https://use.fontawesome.com/f4370ecb67.js"></script>
+
+</head>
+
+<body>
+
+    <div class="cell-container">
+        <h1 style="font-family:albert-bold;">The Quote Machine</h1>
+
+        <div class="controls">
+
+            <div class="control-component">
+                Background Color: <input class="jscolor color-picker" value="6c7792">
+                <button class="pls-grad fa fa-adjust"> PLS</button>
+                
+            </div>
+            
+            <div class="control-component">
+                <label name="title" style="font-family:albert-reg;">Title</label>
+                <br>
+                <input type="text" class="title-input" name="title"/>
+                <br>
+                <button class="up-title fa fa-angle-up"></button>
+                <button class="down-title fa fa-angle-down"></button>
+                <button class="widen-title">Widen</button>
+                <button class="shorten-title">Shorten</button>
+                <!--<button class="right-title fa fa-angle-right"></button>
+                <button class="left-title fa fa-angle-left"></button>-->
+            </div>
+
+            <div class="control-component">
+                <label name="quote">Quote</label>
+                <br>
+                <textarea type="text" class="quote-input" name="quote"/></textarea>
+                <br>
+                <button class="up-quote fa fa-angle-up"></button>
+                <button class="down-quote fa fa-angle-down"></button>
+                <button class="widen-quote">Widen</button>
+                <button class="shorten-quote">Shorten</button>
+                <!--<button class="right-text fa fa-angle-right"></button>
+                <button class="left-text fa fa-angle-left"></button>-->
+            </div>
+
+            <div class="control-component">
+                <label name="author">Author</label>
+                <input type="text" class="author-input" name="author"/>   
+                <button class="up-author fa fa-angle-up"></button>
+                <button class="down-author fa fa-angle-down"></button>
+                <!--<button class="right-text fa fa-angle-right"></button>
+                <button class="left-text fa fa-angle-left"></button>    -->
+            </div>
+
+            <div class="control-component">
+                <label name="lawyer" class="add-lawyer-label">Lawyer</label>
+                <select type="text" class="lawyer-select" name="lawyer"> 
+                    <option data-src="Annett.png">Annett</option>
+                    <option data-src="Arrowsmith.png">Arrowsmith</option>
+                    <option data-src="Ayre.png">Ayre</option> 
+                    <option data-src="Baker.png">Baker</option>
+                    <option data-src="Baylis.png">Baylis</option>
+                    <option data-src="Booth.png">Booth</option>
+                    <option data-src="Butler-ball.png">Butler-Ball</option>
+                    <option data-src="Cogher.png">Cogher</option>
+                    <option data-src="Coles.png">Coles</option>
+                    <option data-src="Collins.png">Collins</option>
+                    <option data-src="Cowling.png">Cowling</option>
+                    <option data-src="Crowther.png">Crowther</option>
+                    <option data-src="Davis.png">Davis</option>
+                    <option data-src="Dowling.png">Dowling</option>
+                    <option data-src="Ettinger.png">Ettinger</option>
+                    <option data-src="Firth.png">Firth</option>
+                    <option data-src="Forster.png">Forster</option>
+                    <option data-src="Gardiner.png">Gardiner</option>
+                    <option data-src="Garner.png">Garner</option>
+                    <option data-src="Jordan.png">Jordan</option>                                        
+                </select>  
+                <button class="add-lawyer">Add Lawyer</button>
+            </div>         
+
+            <!--<div class="control-component">
+                <button class="add-text">Make my Graphic</button>
+            </div>-->
+
+            <div class="control-component">
+                <a id="download">Download my Graphic</a>
+            </div>
+            
+
+        </div>
+
+        <div id="container">
+
+            <canvas id="myCanvas" width="1024" height="512"></canvas>
+
+        </div>
+    </div>
+</body>
+
+</html>
