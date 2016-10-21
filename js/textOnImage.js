@@ -5,6 +5,7 @@ var textColor = "#333";
 var titleX = 80;
 var titleY = 110;
 var titleWidth = 500;
+var titleSize = 48;
 
 var quoteX = 80;
 var quoteY = 160;
@@ -109,7 +110,7 @@ $(document).ready(function () {
 
         context.drawImage(picture, 0, 0);
 
-        context.font = "48px albert-bold";
+        context.font = titleSize + "px albert-bold";
         context.fillStyle = textColor;
         wrapText(context, title, titleX, titleY, titleWidth, 52);
         
@@ -175,6 +176,16 @@ $(document).ready(function () {
 
     $(".shorten-title").on("click", function(){
         titleWidth = titleWidth - 10;
+        drawCanvas();
+    });
+
+    $(".bigger-title").on("click", function(){
+        titleSize = titleSize + 2;
+        drawCanvas();
+    });
+
+    $(".smaller-title").on("click", function(){
+        titleSize = titleSize - 2;
         drawCanvas();
     });
 
