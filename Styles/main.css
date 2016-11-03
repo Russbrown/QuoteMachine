@@ -112,7 +112,7 @@ textarea {
 }
 
 select {
-    width: 65%;
+    width: 100%;
     float: left;
     padding: 1em;
     border-radius: 10px;

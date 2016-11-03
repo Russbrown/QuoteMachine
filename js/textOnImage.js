@@ -23,7 +23,7 @@ $(document).ready(function () {
     var context = canvas.getContext('2d');
     
     var logo = new Image();
-    logo.src = 'Images/Hiring.png';
+    logo.src = 'Images/Logo-dark.png';
 
     var picture = new Image();
     picture.src = 'Images/people/Annett.png';
@@ -105,10 +105,18 @@ $(document).ready(function () {
             context.fillStyle = "#" + backgroundColor;
             context.fillRect(0,0, canvas.width, canvas.height);
         }
-        
-        context.drawImage(logo, 0, 0);
 
-        context.drawImage(picture, 0, 0);
+        context.drawImage(logo, 0, 0); // draw the image if its already there
+
+        $(logo).on('load', function(){ // draw it after load if its new
+            context.drawImage(logo, 0, 0);
+        });
+
+        context.drawImage(picture, 0, 0); // draw the image if its already there
+
+        $(picture).on('load', function(){ // draw it after load if its new
+            context.drawImage(picture, 0, 0);
+        });
 
         context.font = titleSize + "px albert-bold";
         context.fillStyle = textColor;
@@ -128,7 +136,7 @@ $(document).ready(function () {
     }
 
     $("#download").on("click", function(){
-        downloadCanvas(this, 'myCanvas', 'RussIsAce.png');
+        downloadCanvas(this, 'myCanvas', 'Quote.png');
     });
 
     $(".color-picker").on("change", function(){
@@ -139,18 +147,27 @@ $(document).ready(function () {
 
     $(".pls-grad").on("click", function(){
         gradientActive = true;
-        colorStop1 = "#6a3178";
-        colorStop2 = "#217cbc";  
+        colorStop1 = "#6F3075";
+        colorStop2 = "#A2266B";  
+        drawCanvas();      
+    });
+
+    $(".bls-grad").on("click", function(){
+        gradientActive = true;
+        colorStop1 = "#594897";
+        colorStop2 = "#1C6DAF";  
         drawCanvas();      
     });
 
     $(".dark-text").on("click", function(){
         textColor = "#333";
+        logo.src = 'Images/Logo-dark.png';
         drawCanvas();
     });
 
     $(".light-text").on("click", function(){
         textColor = "#eee";
+        logo.src = 'Images/Logo-light.png';
         drawCanvas();
     });
 
@@ -232,10 +249,6 @@ $(document).ready(function () {
     $(".lawyer-select").on("change", function(){
         var lawyer = $(this).find(":selected").attr('data-src');
         picture.src = 'Images/people/' + lawyer;
-        drawCanvas();
-    });
-
-    $(".add-lawyer").on("click", function(){
         drawCanvas();
     });
 
