@@ -28,6 +28,9 @@ $(document).ready(function () {
     var picture = new Image();
     picture.src = 'Images/people/Annett.png';
 
+    var backgroundImg = new Image();
+    backgroundImg.src = '';
+
     function wrapText (context, text, x, y, maxWidth, lineHeight) {
         
         var words = text.split(' '),
@@ -116,6 +119,14 @@ $(document).ready(function () {
 
         $(picture).on('load', function(){ // draw it after load if its new
             context.drawImage(picture, 0, 0);
+        });
+
+        console.log(backgroundImg.src);
+
+        context.drawImage(backgroundImg, 0, 0); // draw the image if its already there
+
+        $(backgroundImg).on('load', function(){ // draw it after load if its new
+            context.drawImage(backgroundImg, 0, 0);
         });
 
         context.font = titleSize + "px albert-bold";
@@ -252,5 +263,16 @@ $(document).ready(function () {
         drawCanvas();
     });
 
+    var imageLoader = document.getElementById('imageLoader');
+    imageLoader.addEventListener('change', handleImage, false);
+
+    function handleImage(e){
+        var reader = new FileReader();
+        reader.onload = function(event){
+            backgroundImg.src = event.target.result;
+        }
+        reader.readAsDataURL(e.target.files[0]);  
+        drawCanvas();   
+    }
 
 });
