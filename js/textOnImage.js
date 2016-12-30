@@ -26,7 +26,7 @@ $(document).ready(function () {
     logo.src = 'Images/Logo-dark.png';
 
     var picture = new Image();
-    picture.src = 'Images/people/Annett.png';
+    picture.src = '';
 
     var backgroundImg = new Image();
     backgroundImg.src = '';
@@ -115,18 +115,21 @@ $(document).ready(function () {
         /// Background image
         ///
         ///
-        context.globalAlpha = 0.5;
-        context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height); // draw the image if its already there
+        if (backgroundImg.src == "") {
+            // do nothing
+        } else {
+            context.globalAlpha = 0.5;
+            context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height); // draw the image if its already there
 
-        $(backgroundImg).on('load', function(){ // draw it after load if its new
-            context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
-        });
-        context.globalAlpha = 1;
+            $(backgroundImg).on('load', function(){ // draw it after load if its new
+                context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+            });
+            context.globalAlpha = 1;
+        }
 
         /// lawyer
         ///
         ///
-
         if (picture.src == "") {
             // do nothing
         } else {
