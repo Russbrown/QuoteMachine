@@ -7,7 +7,7 @@ var titleY = 110;
 var titleWidth = 500;
 var titleSize = 48;
 
-var quoteX = 80;
+var quoteX = 81;
 var quoteY = 160;
 var quoteWidth = 500;
 
