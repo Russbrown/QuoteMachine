@@ -97,7 +97,10 @@ $(document).ready(function () {
         var author = $('.author-input').val();
         
         clearCanvas(document.getElementById('myCanvas'));
-        
+
+        // Backgorund colour
+        ///
+        ///
         if (gradientActive) {
             gradient = context.createLinearGradient(0,0,canvas.width,canvas.height);
             gradient.addColorStop(0,colorStop1);
@@ -109,11 +112,18 @@ $(document).ready(function () {
             context.fillRect(0,0, canvas.width, canvas.height);
         }
 
-        context.drawImage(logo, 0, 0); // draw the image if its already there
+        /// Background image
+        ///
+        ///
+        context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height); // draw the image if its already there
 
-        $(logo).on('load', function(){ // draw it after load if its new
-            context.drawImage(logo, 0, 0);
+        $(backgroundImg).on('load', function(){ // draw it after load if its new
+            context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
         });
+
+        /// lawyer
+        ///
+        ///
 
         context.drawImage(picture, 0, 0); // draw the image if its already there
 
@@ -121,18 +131,22 @@ $(document).ready(function () {
             context.drawImage(picture, 0, 0);
         });
 
-        console.log(backgroundImg.src);
+        // Logo
+        ///
+        ///
+        context.drawImage(logo, 0, 0); // draw the image if its already there
 
-        context.drawImage(backgroundImg, 0, 0); // draw the image if its already there
-
-        $(backgroundImg).on('load', function(){ // draw it after load if its new
-            context.drawImage(backgroundImg, 0, 0);
+        $(logo).on('load', function(){ // draw it after load if its new
+            context.drawImage(logo, 0, 0);
         });
 
+        /// Quote Text
+        ///
+        ///
         context.font = titleSize + "px albert-bold";
         context.fillStyle = textColor;
         wrapText(context, title, titleX, titleY, titleWidth, 52);
-        
+
         context.font = "28px albert-reg";
         context.fillStyle = textColor;
         wrapText(context, quote, quoteX, quoteY, quoteWidth, 34);
@@ -145,6 +159,11 @@ $(document).ready(function () {
         context.fillStyle = textColor;
         context.fillText(author, authorX, authorY);       
     }
+
+
+    /// Actions
+    ///
+    ///
 
     $("#download").on("click", function(){
         downloadCanvas(this, 'myCanvas', 'Quote.png');
