@@ -115,21 +115,27 @@ $(document).ready(function () {
         /// Background image
         ///
         ///
+        context.globalAlpha = 0.5;
         context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height); // draw the image if its already there
 
         $(backgroundImg).on('load', function(){ // draw it after load if its new
             context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
         });
+        context.globalAlpha = 1;
 
         /// lawyer
         ///
         ///
 
-        context.drawImage(picture, 0, 0); // draw the image if its already there
+        if (picture.src == "") {
+            // do nothing
+        } else {
+            context.drawImage(picture, 0, 0); // draw the image if its already there
 
-        $(picture).on('load', function(){ // draw it after load if its new
-            context.drawImage(picture, 0, 0);
-        });
+            $(picture).on('load', function(){ // draw it after load if its new
+                context.drawImage(picture, 0, 0);
+            });
+        }
 
         // Logo
         ///
@@ -278,7 +284,11 @@ $(document).ready(function () {
 
     $(".lawyer-select").on("change", function(){
         var lawyer = $(this).find(":selected").attr('data-src');
-        picture.src = 'Images/people/' + lawyer;
+        if (lawyer == "") {
+            picture.src = "";
+        } else {
+            picture.src = 'Images/people/' + lawyer;
+        }
         drawCanvas();
     });
 
