@@ -15,7 +15,8 @@ var authorX = 80;
 var authorY = 300;
 var authorWidth = 500;
 
-
+var imgHeight = 0;
+var imgWidth = 0;
 
 $(document).ready(function () {
 
@@ -98,9 +99,10 @@ $(document).ready(function () {
         
         clearCanvas(document.getElementById('myCanvas'));
 
-        // Backgorund colour
+        // Background colour
         ///
         ///
+        context.globalCompositeOperation = "multiply";
         if (gradientActive) {
             gradient = context.createLinearGradient(0,0,canvas.width,canvas.height);
             gradient.addColorStop(0,colorStop1);
@@ -111,6 +113,7 @@ $(document).ready(function () {
             context.fillStyle = "#" + backgroundColor;
             context.fillRect(0,0, canvas.width, canvas.height);
         }
+        context.globalCompositeOperation = "source-over";
 
         /// Background image
         ///
@@ -119,10 +122,11 @@ $(document).ready(function () {
             // do nothing
         } else {
             context.globalAlpha = 0.5;
-            context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height); // draw the image if its already there
+            context.drawImage(backgroundImg, 0, 0, imgWidth, imgHeight); // draw the image if its already there
 
             $(backgroundImg).on('load', function(){ // draw it after load if its new
-                context.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+                context.drawImage(backgroundImg, 0, 0, imgWidth, imgHeight);
+                drawCanvas();
             });
             context.globalAlpha = 1;
         }
@@ -302,9 +306,18 @@ $(document).ready(function () {
         var reader = new FileReader();
         reader.onload = function(event){
             backgroundImg.src = event.target.result;
+            imageRatioFinder(backgroundImg);
         }
         reader.readAsDataURL(e.target.files[0]);  
         drawCanvas();   
+    }
+
+    function imageRatioFinder(img){
+        width = img.width;
+        height = img.height;
+        ratio = $('#myCanvas').width() / width;
+        imgHeight = height * ratio;
+        imgWidth = width * ratio;
     }
 
 });
