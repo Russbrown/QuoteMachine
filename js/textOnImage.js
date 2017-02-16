@@ -11,6 +11,8 @@ var quoteX = 81;
 var quoteY = 160;
 var quoteWidth = 500;
 
+var quoteMode = true;
+
 var authorX = 80;
 var authorY = 300;
 var authorWidth = 500;
@@ -164,9 +166,11 @@ $(document).ready(function () {
         context.fillStyle = textColor;
         wrapText(context, quote, quoteX, quoteY, quoteWidth, 34);
 
-        context.font = "28px albert-reg";
-        context.fillStyle = textColor;
-        context.fillText('"', (quoteX - 10), (quoteY) );
+        if (quoteMode) {
+            context.font = "28px albert-reg";
+            context.fillStyle = textColor;
+            context.fillText('"', (quoteX - 10), (quoteY) );
+        }
 
         context.font = "18px albert-reg";
         context.fillStyle = textColor;
@@ -288,6 +292,17 @@ $(document).ready(function () {
         authorY = authorY + 10;
         drawCanvas();
     });
+
+    $('.js-quote-mode').on("click", function(){
+        if (quoteMode) {
+            quoteMode = false;
+            $(this).html('Standard Mode');
+        } else {
+            quoteMode = true;
+            $(this).html('Quote Mode');
+        }
+        drawCanvas();
+    })
 
     $(".lawyer-select").on("change", function(){
         var lawyer = $(this).find(":selected").attr('data-src');
