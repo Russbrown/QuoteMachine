@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <title>The Quote Machine</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/textOnImage--insta.js"></script>
+    <script src="js/jscolor.min.js"></script>
+    <!--<script src="js/draggable.js"></script>-->
+    <script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.min.js"></script>
+    <link rel=StyleSheet href="Styles/main--insta.css" type="text/css">
+    <script src="https://use.fontawesome.com/f4370ecb67.js"></script>
+
+</head>
+
+<body>
+
+    <div class="cell-container">
+        <h1 style="font-family:albert-bold;">The Quote Machine</h1>
+
+        <div class="controls">
+
+            <div class="control-component">
+                Background Color: <input class="jscolor color-picker" value="6c7792">
+                <button class="pls-grad fa fa-adjust"> PLS</button>
+                <button class="bls-grad fa fa-adjust"> BLS</button>
+            </div>
+
+            <div class="control-component">
+                Text Color:
+                <br>
+                <button class="light-text fa fa-adjust"> Light</button>
+                <button class="dark-text fa fa-adjust"> Dark</button>
+            </div>
+            
+            <div class="control-component">
+                <button class="js-quote-mode">Quote Mode</button>
+                <br>
+                <br>
+                <label name="title">Title</label>
+                <br>
+                <input type="text" class="title-input" name="title"/>
+                <br>
+                <button class="up-title fa fa-angle-up"></button>
+                <button class="down-title fa fa-angle-down"></button>
+                <button class="widen-title">Widen</button>
+                <button class="shorten-title">Shorten</button>
+                <button class="bigger-title">+</button>
+                <button class="smaller-title">-</button>
+                <!--<button class="right-title fa fa-angle-right"></button>
+                <button class="left-title fa fa-angle-left"></button>-->
+            </div>
+
+            <div class="control-component">
+                <label name="quote">Quote</label>
+                <br>
+                <textarea type="text" class="quote-input" name="quote"/></textarea>
+                <br>
+                <button class="up-quote fa fa-angle-up"></button>
+                <button class="down-quote fa fa-angle-down"></button>
+                <button class="widen-quote">Widen</button>
+                <button class="shorten-quote">Shorten</button>
+                <!--<button class="right-text fa fa-angle-right"></button>
+                <button class="left-text fa fa-angle-left"></button>-->
+            </div>
+
+            <div class="control-component">
+                <label name="author">Author</label>
+                <input type="text" class="author-input" name="author"/>   
+                <button class="up-author fa fa-angle-up"></button>
+                <button class="down-author fa fa-angle-down"></button>
+                <!--<button class="right-text fa fa-angle-right"></button>
+                <button class="left-text fa fa-angle-left"></button>    -->
+            </div>
+
+            <div class="control-component">
+                <label name="lawyer" class="add-lawyer-label">Lawyer</label>
+                <select type="text" class="lawyer-select" name="lawyer"> 
+                    <option data-src="">No lawyer</option>
+                    <option data-src="Annett.png">Annett</option>
+                    <option data-src="Arrowsmith.png">Arrowsmith</option>
+                    <option data-src="Ayre.png">Ayre</option> 
+                    <option data-src="Baker.png">Baker</option>
+                    <option data-src="Baylis.png">Baylis</option>
+                    <option data-src="Booth.png">Booth</option>
+                    <option data-src="Butler-ball.png">Butler-Ball</option>
+                    <option data-src="Cogher.png">Cogher</option>
+                    <option data-src="Coles.png">Coles</option>
+                    <option data-src="Collins.png">Collins</option>
+                    <option data-src="Cowling.png">Cowling</option>
+                    <option data-src="Crowther.png">Crowther</option>
+                    <option data-src="Davis.png">Davis</option>
+                    <option data-src="Dowling.png">Dowling</option>
+                    <option data-src="Downing.png">Downing</option>
+                    <option data-src="Dhillon.png">Dhillon</option>
+                    <option data-src="Ettinger.png">Ettinger</option>
+                    <option data-src="Firth.png">Firth</option>
+                    <option data-src="Forster.png">Forster</option>
+                    <option data-src="Gardiner.png">Gardiner</option>
+                    <option data-src="Garner.png">Garner</option>
+                    <option data-src="Gavin.png">Gavin</option>
+                    <option data-src="Goldsworthy.png">Goldsworthy</option>
+                    <option data-src="Groarke.png">Groarke</option>
+                    <option data-src="Hayes(Glenn).png">Hayes(Glenn)</option>
+                    <option data-src="Hayes(Sinead).png">Hayes(Sinead)</option>
+                    <option data-src="Hicks.png">Hicks</option>
+                    <option data-src="Hutchinson.png">Hutchinson</option>
+                    <option data-src="Ince.png">Ince</option>
+                    <option data-src="Irwin.png">Irwin</option>
+                    <option data-src="Jatinder.png">Jatinder</option>
+                    <option data-src="Jewitt.png">Jewitt</option>
+                    <option data-src="Jordan.png">Jordan</option>
+                    <option data-src="Kirtley.png">Kirtley</option>
+                    <option data-src="Lewis.png">Lewis</option>
+                    <option data-src="Lomas.png">Lomas</option>
+                    <option data-src="Luckman.png">Luckman</option>
+                    <option data-src="Mahapatra.png">Mahapatra</option>
+                    <option data-src="Morris.png">Morris</option>
+                    <option data-src="Mullins.png">Mullins</option>
+                    <option data-src="Palmer-Hughes.png">Palmer-Hughes</option>
+                    <option data-src="Tucker.png">Tucker</option>
+                    <option data-src="Wealleans.png">Wealleans</option>
+                </select>  
+            </div>         
+
+            <input type="file" id="imageLoader" name="imageLoader"/>
+
+            <button class="img-left fa fa-angle-left"></button>
+
+            <button class="img-right fa fa-angle-right"></button>
+
+            <div class="control-component">
+                <a id="download" style="font-family:albert-reg;">Download my Graphic</a>
+            </div>
+
+        </div>
+
+        <div id="container">
+
+            <canvas id="myCanvas" width="1080" height="1080"></canvas>
+
+        </div>
+    </div>
+</body>
+
+</html>
